@@ -1,0 +1,20 @@
+#MyEclipse Hibernate Properties
+#Fri Apr 21 18:51:59 CST 2017
+genBasicCompId=false
+sessionFactoryName=com.pet.factory.HibernateSessionFactory
+profile=
+daoSFId=
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=native
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=
+configFile=/pets02/src/hibernateTemp.cfg.xml
+createConfigFile=true

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="default" namespace="/" extends="struts-default">
+
+    	<!-- 该action的作用为登陆注册页面的跳转 -->
+       <action name = "User_*"  class ="com.pet.action.UserAction"
+       		method ="{1}">
+       	
+       		<result name ="{1}-succss">/main.jsp</result>
+       		<result name = "{1}-error">/login.jsp</result>
+       
+       	</action>
+       
+       <!-- 世界动物的action请求 -->
+<!--        <action name ="petsOfWorld" class ="com.pet.action.PetListAction"
+       		method ="petList">
+       			<result name="petList">/petsOfWorld.jsp</result>
+       	</action> -->
+       <action name ="catsOfWorld" class ="com.pet.action.CatListAction"
+       		method ="catList">
+       			<result name="catList">/catsOfWorld.jsp</result>
+       	</action>
+       <action name ="dogsOfWorld" class ="com.pet.action.DogListAction"
+       		method ="dogList">
+       			<result name="dogList">/dogsOfWorld.jsp</result>
+       	</action>
+       
+       <!--  流浪猫狗的action请求 -->
+<!--        <action name ="stray_pet" class ="com.pet.action.StrayPetAction"
+       		method ="StrayPetList">
+       		<result name ="strayPetList">/stray_pet.jsp</result>	
+       	</action> -->
+       <action name ="stray_cats" class ="com.pet.action.StrayCatsAction"
+       		method ="StrayCatsList">
+       		<result name ="strayCatsList">/stray_cats.jsp</result>	
+       	</action>
+       <action name ="stray_dogs" class ="com.pet.action.StrayDogsAction"
+       		method ="StrayDogsList">
+       		<result name ="strayDogsList">/stray_dogs.jsp</result>	
+       	</action>
+
+       
+       <!-- 对于帖子评论的action，由于判断因素取决于result，所以action中的name请求其实可以全部一样，无需加通配符也可 -->
+       <!-- 交流讨论帖子的action请求，通过返回值来找到相应的页面 -->
+       <action name="share_*"  class ="com.pet.action.ArticleAction"
+       		method = "ArticleList">
+       		
+       		<result name = "Beauty" >/talkAndShare/BeautyArticle.jsp</result>
+       		<result name = "Feed">/talkAndShare/FeedKnowledge.jsp</result>
+       		<result name = "Talk">/talkAndShare/TalkAndDiscuss.jsp</result>
+       		
+       	</action>
+       	
+       	<!-- 交流讨论评论的action请求, 缺少发表评论的功能-->
+       	<action name ="comment_*" class = "com.pet.action.ArticleCommentAction" 
+       			method = "ArticleContent">
+       			
+       			<result name="Beauty">/talkAndShare/BeautyArticle_comment.jsp</result>	
+       			<result name ="Feed">/talkAndShare/FeedKnowledge_comment.jsp</result>	
+       			<result name ="Talk">/talkAndShare/TalkAndDiscuss_comment.jsp</result>
+       			
+       	</action>
+       
+       <!-- 该action请求为插入文章的请求，缺少判断获取select中的值，不能正确转发到相应页面 -->
+       <action name = "articleInsert" class = "com.pet.action.ArticleAction"
+       			method = "addArticle">
+       			
+				<result name = "success" >/error.jsp</result>
+       
+       </action>
+       
+       
+    </package>
+
+
+</struts>
